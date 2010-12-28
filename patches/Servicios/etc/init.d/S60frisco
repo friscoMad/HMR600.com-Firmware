@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#cp /sbin/www/stupid-ftpd.conf /usr/local/etc
+#service ftp start
+#sleep 20
+#killall inetd
+service http start
+service upnp start
+cp /sbin/spindown.conf /usr/local/etc
+/sbin/spindownd -d -f /tmp/spindown.fifo -p /dev/null -c /usr/local/etc/spindown.conf

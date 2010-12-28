@@ -1,0 +1,55 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: Arial;		        	
+}
+
+#screenshot
+{
+	position:absolute;
+	top: 0px;
+	left: center;
+	width: 520px;	
+	height: 240px;
+}
+
+#screenshotinfo
+{
+	position:absolute;
+	top: 205px;
+	left: center;
+	width: 470px;
+	text-align:center;
+	color: #ffffff;		
+	font-size: 12px;
+}
+
+#time
+{
+	position:absolute;
+	top: 235px;
+	left: center;
+	width: 470px;
+	text-align:center;
+	color: #ffffff;		
+	font-size: 12px;
+}
+
+#name
+{
+	position:absolute;
+	top: 250px;
+	left: center;
+	width: 470px;
+	text-align:center;
+	color: #ffffff;		
+	font-size: 12px;
+}

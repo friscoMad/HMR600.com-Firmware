@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# Patch to recover 557 Wifi driver for 8187
+local ROOT_FS=../../$IMAGE_DIR/components/tmp/rootfs/
+local AP_BIN=../../$IMAGE_DIR/components/packages/package2/AP/bin
+
+chmod -R +rwx *
+
+#rm -Rfv $ROOT_FS/usr/local/bin/DVD 
+rm -Rfv $ROOT_FS/usr/local/bin/imgs
+rm -Rfv $ROOT_FS/usr/local/bin/package
+
+rm -Rfv $AP_BIN/DVD
+rm -Rfv $AP_BIN/imgs
+rm -Rfv $AP_BIN/package
+
+cp -Rv  bin $ROOT_FS
+cp -Rv sbin $ROOT_FS
+
+unlink $ROOT_FS/usr/bin/awk
+unlink $ROOT_FS/usr/bin/unzip
+cp -Rv usr $ROOT_FS
+
+cp -Rv lib $ROOT_FS
+cp -Rv etc $ROOT_FS
+
+#rm -fv $ROOT_FS/usr/bin/smbd
+#rm -fv $ROOT_FS/usr/bin/nmbd
+rm -fv $ROOT_FS/usr/sbin/pppd
+rm -fv $ROOT_FS/usr/local/bin/Resource/bmp/IMAGE_PPS_*
+rm -fv $ROOT_FS/usr/local/bin/Resource/uEGB.vc*
+rm -fv $ROOT_FS/usr/local/bin/image/bestv_loading_bg.bmp
+
+rm -fv $AP_BIN/Resource/bmp/IMAGE_PPS_*
+rm -fv $AP_BIN/Resource/uEGB.vc*
+rm -fv $AP_BIN/image/bestv_loading_bg.bmp
+
+rm -Rfv $ROOT_FS/tmp_orig/smbd
+
+ln --symbolic /tmp/usbmounts $ROOT_FS/sbin/www/media
+ln --symbolic /tmp/ramfs/volumes $ROOT_FS/sbin/www/media2
+ln --symbolic /tmp/myshare $ROOT_FS/sbin/www/media3
+ln --symbolic /tmp/mp3pic.tmp $ROOT_FS/sbin/www/mp3jacket
+ln --symbolic /tmp/screenshot.bmp $ROOT_FS/sbin/www/screenshot.bmp
+
+#ln --symbolic /tmp $ROOT_FS/usr/local/daemon/samba/private
+#ln --symbolic /tmp $ROOT_FS/usr/local/daemon/samba/var
+
+ln --symbolic libiconv.so.2.5.0 $ROOT_FS/lib/libiconv.so.2
+ln --symbolic libjpeg.so.8.0.1 $ROOT_FS/lib/libjpeg.so.8
+ln --symbolic libxml2.so.2.7.2 $ROOT_FS/lib/libxml2.so.2
+ln --symbolic libpng14.so.14.1.0 $ROOT_FS/lib/libpng14.so.14
+
+#ushare libs
+ln --symbolic libixml.so.2.0.6 $ROOT_FS/lib/libixml.so
+ln --symbolic libixml.so.2.0.6 $ROOT_FS/lib/libixml.so.2
+ln --symbolic libthreadutil.so.3.2.3 $ROOT_FS/lib/libthreadutil.so
+ln --symbolic libthreadutil.so.3.2.3 $ROOT_FS/lib/libthreadutil.so.3
+ln --symbolic libupnp.so.5.0.0 $ROOT_FS/lib/libupnp.so
+ln --symbolic libupnp.so.5.0.0 $ROOT_FS/lib/libupnp.so.5
+
+#movemos el menu.rss al HDD
+rm -Rfv $AP_BIN/IMS_Modules
+rm -Rfv $ROOT_FS/usr/local/bin/IMS_Modules
+rm -Rfv $AP_BIN/scripts
+rm -Rfv $ROOT_FS/usr/local/bin/scripts
+ln --symbolic /tmp/usbmounts/sda1/scripts $AP_BIN/scripts
