@@ -26,7 +26,7 @@ while ($i <= 5) {
 
 
 	//Read currently playing file name
-	exec("echo -n '*' > /tmp/ir");
+	exec("echo -n '*' >> /tmp/ir");
 	usleep(300000);
 	$file1 = "/tmp/nowstatus";
 	$fp1 = fopen($file1, 'r');

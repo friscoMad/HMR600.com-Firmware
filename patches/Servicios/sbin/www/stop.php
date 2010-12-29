@@ -4,7 +4,7 @@ error_reporting(0);
 	exec($cmd, $output, $result); 
 
 	if (count($output) > 2){
-		exec("echo -n S > /tmp/ir");
+		exec("echo -n S >> /tmp/ir");
 		exec("echo -n N > /tmp/app");
 		//exec('/usr/local/bin/NAS_Mode_App > /dev/null &');
 		//exec('/usr/local/bin/NAS_Mode_App > /dev/null &');

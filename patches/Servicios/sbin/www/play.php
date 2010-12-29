@@ -54,7 +54,7 @@ if ($file != "")
 else
 	fwrite($fp, $path);
 fclose($fp);
-exec("echo -n '%' > /tmp/ir");
+exec("echo -n '%' >> /tmp/ir");
 
 echo "<script>window.location.href='rc/main.php';</script>";
 ?>

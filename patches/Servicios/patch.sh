@@ -35,7 +35,7 @@ rm -fv $AP_BIN/Resource/bmp/IMAGE_PPS_*
 rm -fv $AP_BIN/Resource/uEGB.vc*
 rm -fv $AP_BIN/image/bestv_loading_bg.bmp
 
-rm -Rfv $ROOT_FS/tmp_orig/smbd
+#rm -Rfv $ROOT_FS/tmp_orig/smbd
 
 ln --symbolic /tmp/usbmounts $ROOT_FS/sbin/www/media
 ln --symbolic /tmp/ramfs/volumes $ROOT_FS/sbin/www/media2
